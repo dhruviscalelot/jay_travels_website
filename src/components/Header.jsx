@@ -77,7 +77,7 @@ export function Header() {
         {/* Desktop CTA Action Buttons */}
         <div className="hidden lg:flex items-center space-x-2">
           <a href="tel:+917487879679" className="btn_outline text-sm">
-            <Phone className="size-4" /> Call Now
+            <Phone className="size-4 mr-2" /> Call Now
           </a>
           <button onClick={() => handleScroll("book")} className="btn_primary text-sm">
             Book Now

@@ -34,7 +34,10 @@
 
   /* Primary action button */
   .btn_primary {
-    @apply inline-flex items-center justify-center space-x-2 rounded-full bg-brand px-5 py-3 font-semibold text-primary-foreground shadow-sm transition-all duration-300 hover:shadow-md active:scale-95 disabled:opacity-50 disabled:pointer-events-none bg-gradient-to-br from-primary-brand to-[#E0B44A];
+    @apply inline-flex items-center justify-center space-x-2 rounded-full
+     bg-brand px-5 py-3 font-semibold text-primary-foreground shadow-sm 
+     transition-all duration-300 hover:shadow-md active:scale-95 disabled:opacity-50 
+     disabled:pointer-events-none bg-gradient-to-br from-primary-brand to-[#E0B44A];
   }
 
   /* Outline action button */
