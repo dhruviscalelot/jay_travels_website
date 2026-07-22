@@ -38,7 +38,8 @@ export default {
           DEFAULT: "#002A3A",
           brand : "#BE6B1D",
           // dark: "#E09626",
-          foreground: "#0B1727",
+          // foreground: "#0B1727",
+          foreground:"#F3FCFB",
         },
 
         secondary: {
