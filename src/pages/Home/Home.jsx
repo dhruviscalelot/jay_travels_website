@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Header from '../../components/Header'
 import { herosectionService } from "../../common/CommonArray";
 import { Sparkles } from 'lucide-react';
+import { HeroTaxiLane } from '../../components/Taxi3D/HeroTaxiLane';
 
 const Home = () => {
 
@@ -13,8 +14,8 @@ const Home = () => {
             {/* hero section start */}
             {/* HERO */}
             <section id="book" className="hero-bg">
-                <div className="wrapper py-10 sm:py-14 md:py-20 grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
-                    <div className="pt-4 reveal_on_scroll">
+                <div className="wrapper py-10 sm:py-14 md:py-20 flex flex-col lg:flex-row items-start space-y-8 lg:space-y-0">
+                    <div className="w-full lg:flex-1 pt-4 reveal_on_scroll">
                         <span className="inline-flex max-w-full items-center gap-2 rounded-full bg-primary/5 border border-primary/10 px-3 py-1 text-xs font-semibold text-primary">
                             <Sparkles className="size-3.5 text-primary-brand" /> Fast & Comfortable Cab Booking
                         </span>
@@ -37,7 +38,7 @@ const Home = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="lg:pl-6 reveal_on_scroll reveal_delay_1">
+                    <div className="w-full lg:flex-1 lg:ml-10 lg:pl-6 reveal_on_scroll reveal_delay_1">
                         {/* <FromToLocation homeLayout /> */}
                     </div>
                 </div>
