@@ -34,24 +34,19 @@
 
   /* Primary action button */
   .btn_primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-5 
-    py-3 font-semibold text-primary-foreground shadow-sm transition-all duration-300
-     hover:shadow-md active:scale-95 disabled:opacity-50 disabled:pointer-events-none
-      bg-gradient-to-br from-primary-brand to-[#E0B44A];
+    @apply inline-flex items-center justify-center space-x-2 rounded-full bg-brand px-5 py-3 font-semibold text-primary-foreground shadow-sm transition-all duration-300 hover:shadow-md active:scale-95 disabled:opacity-50 disabled:pointer-events-none bg-gradient-to-br from-primary-brand to-[#E0B44A];
   }
 
   /* Outline action button */
   .btn_outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-primary bg-background px-5 py-3 font-semibold text-primary shadow-sm transition-all duration-300 hover:bg-primary hover:text-background active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+    @apply inline-flex items-center justify-center space-x-2 rounded-full border border-primary bg-background px-5 py-3 font-semibold text-primary shadow-sm transition-all duration-300 hover:bg-primary hover:text-background active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
   }
 
   /* Standard form input wrapper */
   .form_control {
-    @apply flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 text-14 transition-all duration-200 focus-within:border-brand focus-within:ring-2 focus-within:ring-brand/20;
+    @apply flex items-center space-x-3 rounded-xl border border-border bg-card px-4 py-3 text-14 transition-all duration-200 focus-within:border-brand focus-within:ring-2 focus-within:ring-brand/20;
   }
 }
-
-
 
 /* header */
 @utility icon_motion {
@@ -62,20 +57,6 @@
     transform: translateY(-2px) rotate(-4deg) scale(1.06);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* PrimeReact Calendar clean UI */
 .p-calendar {

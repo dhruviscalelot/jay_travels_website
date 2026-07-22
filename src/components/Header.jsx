@@ -46,7 +46,7 @@ export function Header() {
     <header className="sticky top-0 z-40 bg-background/85 backdrop-blur border-b border-border">
       <div className="wrapper flex h-16 items-center justify-between">
         {/* Brand Logo */}
-        <Link to="/" className="flex min-w-0 items-center gap-2 font-bold text-primary">
+        <Link to="/" className="flex min-w-0 items-center space-x-2 font-bold text-primary">
           <span className="icon_motion inline-flex size-9 items-center justify-center rounded-xl bg-primary text-card">
             <Car className="size-5" />
           </span>
@@ -56,7 +56,7 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-6 text-14 font-medium text-primary/80 ">
+        <nav className="hidden lg:flex items-center space-x-6 text-14 font-medium text-primary/80">
           {NAV.map((item) =>
             item.type === "route" ? (
               <Link key={item.label} to={item.to} className="hover:text-brand anim">
@@ -75,7 +75,7 @@ export function Header() {
         </nav>
 
         {/* Desktop CTA Action Buttons */}
-        <div className="hidden lg:flex items-center gap-2">
+        <div className="hidden lg:flex items-center space-x-2">
           <a href="tel:+917487879679" className="btn_outline text-sm">
             <Phone className="size-4" /> Call Now
           </a>
@@ -98,7 +98,7 @@ export function Header() {
       {open && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div className="absolute inset-0 bg-black/50" onClick={() => setOpen(false)} />
-          <aside className="absolute right-0 top-0 h-full w-80 max-w-full bg-card p-5 flex flex-col gap-6 shadow-elegant">
+          <aside className="absolute right-0 top-0 h-full w-80 max-w-full bg-card p-5 flex flex-col space-y-6 shadow-elegant">
             <div className="flex items-center justify-between">
               <span className="font-bold text-primary text-lg">
                 Jay<span className="text-brand ml-0.5">Travels</span>
@@ -111,7 +111,7 @@ export function Header() {
                 <X className="size-5" />
               </button>
             </div>
-            <nav className="flex flex-col gap-3 text-primary font-medium">
+            <nav className="flex flex-col space-y-3 text-primary font-medium">
               {NAV.map((item) =>
                 item.type === "route" ? (
                   <Link
@@ -133,7 +133,7 @@ export function Header() {
                 )
               )}
             </nav>
-            <div className="mt-auto flex flex-col gap-2">
+            <div className="mt-auto flex flex-col space-y-2">
               <button onClick={() => handleScroll("book")} className="btn_primary">
                 Book Now
               </button>
