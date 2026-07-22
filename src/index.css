@@ -6,13 +6,75 @@
 
 @layer base {
   body {
-    @apply bg-white font-pop text-dark;
+    @apply bg-background font-pop text-foreground antialiased;
   }
 }
 
 @layer components {
-  
+
+  /* Container layout wrapper */
+  .wrapper {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full;
+  }
+
+  /* Smooth transition helper */
+  .anim {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  /* Subtle lift effect on hover */
+  .hover_lift {
+    @apply transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  /* Animated icon wrapper */
+  .icon_motion {
+    @apply transition-all duration-300 hover:rotate-6 hover:scale-105;
+  }
+
+  /* Primary action button */
+  .btn_primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand px-5 
+    py-3 font-semibold text-primary-foreground shadow-sm transition-all duration-300
+     hover:shadow-md active:scale-95 disabled:opacity-50 disabled:pointer-events-none
+      bg-gradient-to-br from-primary-brand to-[#E0B44A];
+  }
+
+  /* Outline action button */
+  .btn_outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-primary bg-background px-5 py-3 font-semibold text-primary shadow-sm transition-all duration-300 hover:bg-primary hover:text-background active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  /* Standard form input wrapper */
+  .form_control {
+    @apply flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 text-14 transition-all duration-200 focus-within:border-brand focus-within:ring-2 focus-within:ring-brand/20;
+  }
 }
+
+
+
+/* header */
+@utility icon_motion {
+  animation: iconBreathe 3.6s ease-in-out infinite;
+  transition: transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1), color 240ms ease, background-color 240ms ease;
+
+  &:hover {
+    transform: translateY(-2px) rotate(-4deg) scale(1.06);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* PrimeReact Calendar clean UI */
@@ -28,7 +90,7 @@
   box-shadow: none;
   font-size: 14px;
   font-weight: 600;
-  color: #0b1727;
+  color: inherit;
 }
 
 .p-calendar input::placeholder {
@@ -38,10 +100,9 @@
 .p-calendar .p-button {
   background: transparent;
   border: 0;
-  color: #0b1727;
+  color: inherit;
   box-shadow: none;
 }
-
 
 /* Phone input clean UI */
 .phone_box .react-tel-input {
@@ -56,7 +117,7 @@
   box-shadow: none;
   font-size: 14px;
   font-weight: 600;
-  color: #0b1727;
+  color: inherit;
 }
 
 .phone_box .react-tel-input .flag-dropdown {
@@ -67,8 +128,6 @@
 .phone_box .react-tel-input .selected-flag {
   background: transparent;
 }
-
-
 
 /* MUI Time Picker clean UI */
 .timer .MuiInputBase-root {
@@ -86,5 +145,5 @@
   padding: 0;
   font-size: 14px;
   font-weight: 600;
-  color: #0b1727;
+  color: inherit;
 }
