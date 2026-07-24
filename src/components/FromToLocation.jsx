@@ -297,86 +297,85 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
                         </div>
 
 
-
-                        {/* From */}
-                        <div className="">
-                            <label className="mb-2 block text-12 font-bold uppercase tracking-wide text-[#748194]">
-                                From
-                            </label>
-
-                            <CustomDropdown
-                                icon={
-                                    <MapPin
-                                        size={20}
-                                        strokeWidth={2.5}
-                                        className="mr-2 shrink-0 text-primary"
-                                    />
-                                }
-                                name="origin_name"
-                                value={values.origin_name}
-                                placeholder="Pickup location"
-                                cities={indianCities}
-                                onType={(value) =>
-                                    updateCityValue(value, "origin_name", setFieldValue)
-                                }
-                                onSelect={(city) =>
-                                    selectCity(city, "origin_name", setFieldValue)
-                                }
-                                onTouched={() => setFieldTouched("origin_name", true)}
-                            />
-                            <ErrorMessage
-                                name={"origin_name"}
-                                component="span"
-                                className="mt-1 block text-12 text-red-500"
-                            />
-
-
-                        </div>
-
-                        {/* To */}
-                        <div>
-                            <div className="mb-2 flex items-center justify-between">
-                                <label className="block text-12 font-bold uppercase tracking-wide text-[#748194]">
-                                    To
+                        {/* From & To */}
+                        <div className="flex w-full items-start">
+                            {/* From */}
+                            <div className="min-w-0 flex-1">
+                                <label className="mb-2 block text-12 font-bold uppercase tracking-wide text-[#748194]">
+                                    From
                                 </label>
 
-                                {values.trip_type === "round_trip" &&
-                                    values.extra_destinations.length + 1 < maxDestinationFields && (
-                                        <button
-                                            type="button"
-                                            onClick={() => addDestination(values, setFieldValue)}
-                                            className="form_icon_btn hover:border-primary hover:bg-primary"
-                                        >
-                                            +
-                                        </button>
-                                    )}
+                                <CustomDropdown
+                                    icon={
+                                        <MapPin
+                                            size={15}
+                                            className="mr-2 shrink-0 text-brand"
+                                        />
+                                    }
+                                    name="origin_name"
+                                    value={values.origin_name}
+                                    placeholder="Pickup location"
+                                    cities={indianCities}
+                                    onType={(value) =>
+                                        updateCityValue(value, "origin_name", setFieldValue)
+                                    }
+                                    onSelect={(city) =>
+                                        selectCity(city, "origin_name", setFieldValue)
+                                    }
+                                    onTouched={() => setFieldTouched("origin_name", true)}
+                                />
+                                <ErrorMessage
+                                    name={"origin_name"}
+                                    component="span"
+                                    className="mt-1 block text-12 text-red-500"
+                                />
                             </div>
 
-                            <CustomDropdown
-                                icon={
-                                    <MapPinned
-                                        size={20}
-                                        strokeWidth={2.5}
-                                        className="mr-2 shrink-0 text-primary"
-                                    />
-                                }
-                                name="dest_name"
-                                value={values.dest_name}
-                                placeholder="Drop location"
-                                cities={indianCities}
-                                onType={(value) =>
-                                    updateCityValue(value, "dest_name", setFieldValue)
-                                }
-                                onSelect={(city) =>
-                                    selectCity(city, "dest_name", setFieldValue)
-                                }
-                                onTouched={() => setFieldTouched("dest_name", true)}
-                            />
-                            <ErrorMessage
-                                name="dest_name"
-                                component="span"
-                                className="mt-1 block text-12 text-red-500"
-                            />
+                            {/* To */}
+                            <div className="ml-3 min-w-0 flex-1">
+                                <div className="mb-2 flex items-center justify-between">
+                                    <label className="block text-12 font-bold uppercase tracking-wide text-[#748194]">
+                                        To
+                                    </label>
+
+                                    {values.trip_type === "round_trip" &&
+                                        values.extra_destinations.length + 1 < maxDestinationFields && (
+                                            <button
+                                                type="button"
+                                                onClick={() => addDestination(values, setFieldValue)}
+                                                className="form_icon_btn hover:border-primary hover:bg-primary"
+                                            >
+                                                +
+                                            </button>
+                                        )}
+                                </div>
+
+                                <CustomDropdown
+                                    icon={
+                                        <MapPinned
+
+                                            size={15}
+                                            className="mr-2 shrink-0 text-brand"
+                                        />
+                                    }
+                                    name="dest_name"
+                                    value={values.dest_name}
+                                    placeholder="Drop location"
+                                    cities={indianCities}
+                                    onType={(value) =>
+                                        updateCityValue(value, "dest_name", setFieldValue)
+                                    }
+                                    onSelect={(city) =>
+                                        selectCity(city, "dest_name", setFieldValue)
+                                    }
+                                    onTouched={() => setFieldTouched("dest_name", true)}
+                                />
+                                <ErrorMessage
+                                    name="dest_name"
+                                    component="span"
+                                    className="mt-1 block text-12 text-red-500"
+                                />
+                            </div>
                         </div>
 
 
@@ -467,6 +466,110 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
                             ))}
 
 
+                        {/* Pickup Date & Pickup Time*/}
+                        <div className="mt-4 flex w-full flex-col sm:flex-row sm:items-start">
+                            {/* Pickup Date */}
+                            <div className="min-w-0 w-full sm:flex-1">
+                                <label className="mb-2 block text-12 font-bold uppercase tracking-wide text-[#748194]">
+                                    Pickup Date
+                                </label>
+
+                                <div className="form_control">
+                                    <Calendar
+                                        name="pickup_date"
+                                        value={values.pickup_date}
+                                        minDate={new Date()}
+                                        onChange={(e) => setFieldValue("pickup_date", e.value)}
+                                        dateFormat="dd/mm/yy"
+                                        placeholder="Select date"
+                                        showIcon
+                                        className="w-full"
+                                    />
+                                </div>
+
+                                <ErrorMessage
+                                    name="pickup_date"
+                                    component="span"
+                                    className="mt-1 block text-12 text-red-500"
+                                />
+                            </div>
+
+                            {/* Pickup Time */}
+                            <div className="mt-4 min-w-0 w-full sm:ml-3 sm:mt-0 sm:flex-1">
+                                <label className="mb-2 block text-12 font-bold uppercase tracking-wide text-[#748194]">
+                                    Pickup Time
+                                </label>
+
+                                <div className="form_control">
+                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                        <MobileTimePicker
+                                            value={values.pickup_time}
+                                            onChange={(newValue) => {
+                                                setFieldValue("pickup_time", newValue);
+                                            }}
+                                            slotProps={{
+                                                textField: {
+                                                    variant: "standard",
+                                                    fullWidth: true,
+                                                    InputProps: {
+                                                        disableUnderline: true,
+                                                    },
+                                                },
+                                            }}
+                                        />
+                                    </LocalizationProvider>
+                                </div>
+
+                                <ErrorMessage
+                                    name="pickup_time"
+                                    component="span"
+                                    className="mt-1 block text-12 text-red-500"
+                                />
+                            </div>
+                        </div>
+
+
+
+                        {/* Mobile */}
+                        <div className="mt-4 flex w-full flex-col sm:flex-row sm:items-start">
+                            {/* Mobile */}
+                            <div className="min-w-0 w-full sm:flex-1">
+                                <label className="mb-2 block text-12 font-bold uppercase tracking-wide text-[#748194]">
+                                    Mobile No.
+                                </label>
+
+                                <div className="phone_box form_control">
+                                    <PhoneInput
+                                        country="in"
+                                        value={`${values.country_code.replace("+", "")}${values.mobile}`}
+                                        onChange={(phone, countryData) => {
+                                            const dialCode = countryData.dialCode;
+                                            const mobileNumber = phone.slice(dialCode.length);
+
+                                            setFieldValue("mobile", mobileNumber);
+                                            setFieldValue("country_code", `+${dialCode}`);
+                                            setFieldValue("country_wise_contact", {
+                                                ...countryData,
+                                                localFormate: phone,
+                                                withoutDialCode: mobileNumber,
+                                            });
+                                        }}
+                                        onBlur={() => setFieldTouched("mobile", true)}
+                                        inputProps={{
+                                            name: "mobile",
+                                            required: true,
+                                        }}
+                                    />
+                                </div>
+                                <ErrorMessage
+                                    name="mobile"
+                                    component="span"
+                                    className="mt-1 block text-12 text-red-500"
+                                />
+
+                            </div>
+
+                        </div>
 
 
 
