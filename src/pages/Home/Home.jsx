@@ -3,6 +3,7 @@ import Header from '../../components/Header'
 import { herosectionService } from "../../common/CommonArray";
 import { Sparkles } from 'lucide-react';
 import { HeroTaxiLane } from '../../components/Taxi3D/HeroTaxiLane';
+import FromToLocation from '../../components/FromToLocation';
 
 const Home = () => {
 
@@ -27,10 +28,10 @@ const Home = () => {
                             2000+ cities in India.
                         </p>
 
-                        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-3 max-w-xl">
+                        <div className="mt-8 flex flex-col md:flex-row max-w-xl">
                             {herosectionService.map((s) => (
-                                <div key={s.label} className="hover_lift flex items-center gap-2 rounded-xl border border-border bg-card p-3 shadow-soft">
-                                    <span className="icon_motion inline-flex size-9 items-center justify-center rounded-lg bg-brand/15 text-primary-brand">
+                                <div key={s.label} className="hover_lift mt-3 first:mt-0 md:mt-0 md:ml-3 md:first:ml-0 md:w-[calc((100%-1.5rem)/3)] flex items-center rounded-xl border border-border bg-card p-3 shadow-soft">
+                                    <span className="icon_motion mr-2 inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary-brand/15 text-primary-brand">
                                         {s.icon}
                                     </span>
                                     <span className="text-sm font-semibold text-primary">{s.label}</span>
@@ -39,7 +40,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="w-full lg:flex-1 lg:ml-10 lg:pl-6 reveal_on_scroll reveal_delay_1">
-                        {/* <FromToLocation homeLayout /> */}
+                        <FromToLocation homeLayout />
                     </div>
                 </div>
                 <HeroTaxiLane />
