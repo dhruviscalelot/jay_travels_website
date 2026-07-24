@@ -11,7 +11,7 @@ import customParseFormat from "dayjs/plugin/customParseFormat";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { MobileTimePicker } from "@mui/x-date-pickers/MobileTimePicker";
-import { MapPin, MapPinned } from "lucide-react";
+import { MapPin, MapPinned, Search } from "lucide-react";
 import CustomDropdown from "../components/UI/CustomDropdown";
 import moment from 'moment';
 import { Car, Phone, ChevronRight, Star, Check, ArrowRight, CalendarDays, Clock, Pencil } from "lucide-react";
@@ -468,6 +468,8 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
 
                         {/* Pickup Date & Pickup Time*/}
                         <div className="mt-4 flex w-full flex-col sm:flex-row sm:items-start">
+
+
                             {/* Pickup Date */}
                             <div className="min-w-0 w-full sm:flex-1">
                                 <label className="mb-2 block text-12 font-bold uppercase tracking-wide text-[#748194]">
@@ -494,13 +496,15 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
                                 />
                             </div>
 
+
+
                             {/* Pickup Time */}
-                            <div className="mt-4 min-w-0 w-full sm:ml-3 sm:mt-0 sm:flex-1">
+                            <div className="min-w-0 w-full sm:flex-1 ml-3">
                                 <label className="mb-2 block text-12 font-bold uppercase tracking-wide text-[#748194]">
                                     Pickup Time
                                 </label>
 
-                                <div className="form_control">
+                                <div className="form_control h-12">
                                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                                         <MobileTimePicker
                                             value={values.pickup_time}
@@ -515,10 +519,12 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
                                                         disableUnderline: true,
                                                     },
                                                 },
+                                                
                                             }}
                                         />
                                     </LocalizationProvider>
                                 </div>
+
 
                                 <ErrorMessage
                                     name="pickup_time"
@@ -526,6 +532,9 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
                                     className="mt-1 block text-12 text-red-500"
                                 />
                             </div>
+
+
+
                         </div>
 
 
@@ -573,13 +582,10 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
 
 
 
-                        <div className="mt-1 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                            {/* <p className="text-center text-12 font-medium text-[#4D5969] sm:mr-4 sm:text-left sm:text-14">
-                                Search available cabs based on your pickup and drop location.
-                            </p> */}
-
-                            <button type="submit" className="btn_primary mt-3 sm:mt-0">
-                                Explore Cabs
+                        <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-betwee">
+                          
+                            <button type="submit" className="w-full btn_primary mt-3 sm:mt-0 gap-2 ">
+                                <Search className="size-4 " />   Explore Cabs
                             </button>
                         </div>
                     </Form>
