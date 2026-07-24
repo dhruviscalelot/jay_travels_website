@@ -43,7 +43,7 @@ const CustomDropdown = ({
                         setIsOpen(true);
                     }}
                     placeholder={placeholder}
-                    className="w-full bg-card text-14 font-semibold text-[#0B1727] outline-none placeholder:text-[#748194]"
+                    className="w-full bg-card text-14 font-sm text-[#0B1727] outline-none placeholder:text-[#748194]"
                 />
             </div>
 

@@ -259,7 +259,7 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
     };
 
     return (
-        <div className={`hover_lift w-full ${homeLayout ? "rounded-2xl bg-card p-5 shadow-elegant border-[2px] border-border" : "rounded-2xl bg-card p-5 shadow-soft border-[2px] border-border"}`}>
+        <div className={`hover_lift w-full ${homeLayout ? "rounded-2xl bg-card px-5 py-4 shadow-elegant border-[1px] border-border" : "rounded-2xl bg-card px-5 py-4 shadow-soft border-[2px] border-border"}`}>
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
@@ -267,8 +267,8 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
                 enableReinitialize
             >
                 {({ values, setFieldValue, setFieldTouched, setValues }) => (
-                    <Form className="space-y-4">
-                        <div className="mb-5 flex flex-wrap justify-start items-center">
+                    <Form className="space-y-3">
+                        <div className="mb-2 flex flex-wrap justify-start items-center">
                             <div className="px-1.5 pb-2">
                                 <button
                                     type="button"
@@ -301,7 +301,7 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
                         <div className="flex w-full items-start">
                             {/* From */}
                             <div className="min-w-0 flex-1">
-                                <label className="mb-2 block text-12 font-bold uppercase tracking-wide text-[#748194]">
+                                <label className="mb-2 block text-12 font-bold font-capitalize tracking-wide text-muted-foreground">
                                     From
                                 </label>
 
@@ -334,7 +334,7 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
                             {/* To */}
                             <div className="ml-3 min-w-0 flex-1">
                                 <div className="mb-2 flex items-center justify-between">
-                                    <label className="block text-12 font-bold uppercase tracking-wide text-[#748194]">
+                                    <label className="block text-12 font-bold font-capitalize tracking-wide text-muted-foreground">
                                         To
                                     </label>
 
@@ -467,12 +467,12 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
 
 
                         {/* Pickup Date & Pickup Time*/}
-                        <div className="mt-4 flex w-full flex-col sm:flex-row sm:items-start">
+                        <div className="mt-2 flex w-full flex-col sm:flex-row sm:items-start">
 
 
                             {/* Pickup Date */}
                             <div className="min-w-0 w-full sm:flex-1">
-                                <label className="mb-2 block text-12 font-bold uppercase tracking-wide text-[#748194]">
+                                <label className="mb-2 block text-12 font-bold uppercase tracking-wide text-muted-foreground">
                                     Pickup Date
                                 </label>
 
@@ -500,11 +500,11 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
 
                             {/* Pickup Time */}
                             <div className="min-w-0 w-full sm:flex-1 ml-3">
-                                <label className="mb-2 block text-12 font-bold uppercase tracking-wide text-[#748194]">
+                                <label className="mb-2 block text-12 font-bold font-capitalize tracking-wide text-muted-foreground">
                                     Pickup Time
                                 </label>
 
-                                <div className="form_control h-12">
+                                <div className="form_control timer h-[46px]">
                                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                                         <MobileTimePicker
                                             value={values.pickup_time}
@@ -540,14 +540,14 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
 
 
                         {/* Mobile */}
-                        <div className="mt-4 flex w-full flex-col sm:flex-row sm:items-start">
+                        <div className="mt-2 flex w-full flex-col sm:flex-row sm:items-start">
                             {/* Mobile */}
                             <div className="min-w-0 w-full sm:flex-1">
-                                <label className="mb-2 block text-12 font-bold uppercase tracking-wide text-[#748194]">
+                                <label className="mb-2 block text-12 font-bold font-capitalize tracking-wide text-muted-foreground">
                                     Mobile No.
                                 </label>
 
-                                <div className="phone_box form_control">
+                                <div className="phone_box form_control border-[1px] border-border">
                                     <PhoneInput
                                         country="in"
                                         value={`${values.country_code.replace("+", "")}${values.mobile}`}
@@ -581,8 +581,35 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
                         </div>
 
 
+                        {/* Return Date for only round trips */}
+                        {values.trip_type === "round_trip" && (
+                            <div>
+                                <label className="mb-2 block text-12 font-bold uppercase tracking-wide text-[#748194]">
+                                    Return Date
+                                </label>
 
-                        <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-betwee">
+                                <div className="form_control">
+                                    <Calendar
+                                        name="return_date"
+                                        value={values.return_date}
+                                        minDate={new Date()}
+                                        onChange={(e) => setFieldValue("return_date", e.value)}
+                                        dateFormat="dd/mm/yy"
+                                        placeholder="Select date"
+                                        showIcon
+                                        className="w-full"
+                                    />
+                                </div>
+
+                                <ErrorMessage
+                                    name="return_date"
+                                    component="span"
+                                    className="mt-1 block text-12 text-red-500"
+                                />
+                            </div>
+                        )}
+
+                        <div className="mt-2 flex flex-col sm:flex-row sm:items-center sm:justify-betwee">
 
                             <button type="submit" className="w-full btn_primary mt-3 sm:mt-0 gap-2 ">
                                 <Search className="size-4 " />   Explore Cabs

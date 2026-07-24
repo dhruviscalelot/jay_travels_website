@@ -63,16 +63,19 @@
 /* end header */
 
 
-@utility hover_lift {
+
+/* start form section */
+.hover_lift {
   transition: transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 280ms ease, border-color 280ms ease, filter 280ms ease;
   will-change: transform;
 
   &:hover {
     transform: translateY(-5px) scale(1.01);
-    border-color: color-mix(in oklab, #FBB03B 42%, #D8E4E4);
+    border-color: color-mix(in oklab, #BE6B1D 42%, #D8E4E4);
     box-shadow: 0 24px 55px -26px color-mix(in oklab, #00161D 42%, transparent);
   }
 }
+/* end form section */
 
 
 
@@ -130,26 +133,12 @@
 }
 
 
-/* MUI Time Picker clean UI */
-.timer .MuiInputBase-root {
-  width: 100%;
-  padding: 0;
-  border: 0;
-  background: transparent;
-}
 
-.timer .MuiOutlinedInput-notchedOutline {
-  border: 0;
-}
-
-.timer input {
-  padding: 0;
-  font-size: 14px;
-  font-weight: 600;
-  color: inherit;
-}
-
-
+/* .timer .MuiPickersTextField-root, .timer .MuiFormControl-root {
+    display: block;
+    width: 100%;
+    border-style: none;
+} */
 
 
 
