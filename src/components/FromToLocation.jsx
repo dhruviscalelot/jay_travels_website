@@ -267,7 +267,7 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
                 enableReinitialize
             >
                 {({ values, setFieldValue, setFieldTouched, setValues }) => (
-                    <Form className="rounded-[28px] bg-white p-4 shadow-xl sm:p-5 lg:p-6">
+                    <Form className="rounded-[28px] bg-card p-4 shadow-xl sm:p-5 lg:p-5 border border-border">
                         <div className="mb-5 flex flex-wrap justify-start items-center">
                             <div className="px-1.5 pb-2">
                                 <button
@@ -519,7 +519,7 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
                                                         disableUnderline: true,
                                                     },
                                                 },
-                                                
+
                                             }}
                                         />
                                     </LocalizationProvider>
@@ -583,7 +583,7 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
 
 
                         <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-betwee">
-                          
+
                             <button type="submit" className="w-full btn_primary mt-3 sm:mt-0 gap-2 ">
                                 <Search className="size-4 " />   Explore Cabs
                             </button>
