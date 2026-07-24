@@ -34,10 +34,7 @@
 
   /* Primary action button */
   .btn_primary {
-    @apply inline-flex items-center justify-center space-x-2 rounded-full
-     bg-brand px-5 py-3 font-semibold text-primary-foreground shadow-sm 
-     transition-all duration-300 hover:shadow-md active:scale-95 disabled:opacity-50 
-     disabled:pointer-events-none bg-gradient-to-br from-primary-brand to-[#E0B44A];
+    @apply inline-flex items-center justify-center space-x-2 rounded-full bg-brand px-5 py-3 font-semibold text-primary-foreground shadow-sm transition-all duration-300 hover:shadow-md active:scale-95 disabled:opacity-50 disabled:pointer-events-none bg-gradient-to-br from-primary-brand to-[#E0B44A];
   }
 
   /* Outline action button */
@@ -62,7 +59,9 @@
     transform: translateY(-2px) rotate(-4deg) scale(1.06);
   }
 }
+
 /* end header */
+
 
 
 
@@ -137,3 +136,257 @@
   font-weight: 600;
   color: inherit;
 }
+
+
+
+
+
+
+
+
+
+/* //start 3d taxi css */
+
+/* ============ 3D TAXI ANIMATIONS ============ */
+/* Wheels */
+@keyframes taxiWheelSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.taxi-wheel-spin {
+  animation: taxiWheelSpin 0.7s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* --- Hero lane: taxi drives across the bottom of the hero --- */
+.taxi-hero-lane {
+  position: relative;
+  height: 130px;
+  margin-top: -30px;
+  pointer-events: none;
+  perspective: 900px;
+  perspective-origin: 50% 30%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.taxi-hero-road {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18px;
+  height: 42px;
+  transform: rotateX(58deg);
+  transform-origin: 50% 100%;
+  background:
+    linear-gradient(to bottom,
+      color-mix(in oklab, #0F2A32 65%, transparent),
+      color-mix(in oklab, #0F2A32 82%, transparent));
+  border-radius: 4px;
+  box-shadow: 0 -8px 30px -12px color-mix(in oklab, #BE6B1D 40%, transparent);
+  overflow: hidden;
+}
+
+.taxi-hero-stripes {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(to right,
+      #BE6B1D 0 34px,
+      transparent 34px 74px);
+  top: 50%;
+  height: 4px;
+  transform: translateY(-50%);
+  opacity: 0.85;
+  animation: taxiRoadDash 0.9s linear infinite;
+}
+
+@keyframes taxiRoadDash {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -74px 0;
+  }
+}
+
+.taxi-hero-driver {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 180px;
+  height: 90px;
+  animation: taxiHeroDrive 14s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  will-change: transform;
+}
+
+@keyframes taxiHeroDrive {
+  0% {
+    transform: translateX(-220px) scale(0.78);
+  }
+
+  45% {
+    transform: translateX(45vw) scale(1);
+  }
+
+  55% {
+    transform: translateX(55vw) scale(1);
+  }
+
+  100% {
+    transform: translateX(110vw) scale(1.05);
+  }
+}
+
+.taxi-hero-bob {
+  width: 100%;
+  height: 100%;
+  animation: taxiHeroBob 0.9s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+
+@keyframes taxiHeroBob {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(-0.6deg);
+  }
+
+  50% {
+    transform: translateY(-3px) rotate(0.6deg);
+  }
+}
+
+.taxi-hero-sprite {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 12px 14px rgba(10, 20, 30, 0.28));
+}
+
+.taxi-hero-headlight {
+  position: absolute;
+  right: -60px;
+  bottom: 28px;
+  width: 180px;
+  height: 40px;
+  background: radial-gradient(ellipse at left center,
+      color-mix(in oklab, #fff6c2 60%, transparent),
+      transparent 70%);
+  filter: blur(2px);
+  opacity: 0.85;
+}
+
+/* --- Scroll road: taxi follows a curved SVG path as you scroll --- */
+.taxi-scroll-road {
+  position: relative;
+  width: 100%;
+  pointer-events: none;
+}
+
+.taxi-scroll-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.taxi-scroll-label {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, #BE6B1D 90%, #0F2A32);
+  opacity: 0.75;
+}
+
+.taxi-scroll-driver {
+  position: absolute;
+  width: 140px;
+  height: 65px;
+  transition: transform 120ms linear, left 120ms linear, top 120ms linear;
+  filter: drop-shadow(0 10px 12px rgba(10, 20, 30, 0.28));
+}
+
+.taxi-scroll-sprite {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 640px) {
+  .taxi-hero-lane {
+    height: 100px;
+  }
+
+  .taxi-hero-driver {
+    width: 140px;
+    height: 70px;
+  }
+
+  .taxi-scroll-driver {
+    width: 100px;
+    height: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .taxi-wheel-spin,
+  .taxi-hero-stripes,
+  .taxi-hero-driver,
+  .taxi-hero-bob {
+    animation: none !important;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hero-bg {
+  background:
+    radial-gradient(1200px 500px at 90% -10%, color-mix(in oklab, #BE6B1D 22%, transparent), transparent 60%),
+    radial-gradient(900px 400px at -10% 20%, color-mix(in oklab, #002A3A 14%, transparent), transparent 60%),
+    linear-gradient(135deg, color-mix(in oklab, #D4F3EF 54%, transparent), transparent 48%),
+    #F1FCFA;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+
+  .reveal_on_scroll,
+  .page_enter,
+  .car_motion,
+  .icon_motion {
+    animation: none !important;
+  }
+}
+
+/* //end 3d taxi css */

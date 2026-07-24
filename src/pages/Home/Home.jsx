@@ -42,7 +42,7 @@ const Home = () => {
                         {/* <FromToLocation homeLayout /> */}
                     </div>
                 </div>
-                {/* <HeroTaxiLane /> */}
+                <HeroTaxiLane />
             </section>
 
             {/* hero section end */}
