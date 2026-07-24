@@ -36,7 +36,7 @@ export default {
 
         primary: {
           DEFAULT: "#002A3A",
-          brand : "#BE6B1D",
+          brand: "#BE6B1D",
           // dark: "#E09626",
           foreground: "#0B1727",
           foreground1: "#F3FCFB",
@@ -62,7 +62,7 @@ export default {
           foreground: "#FCFCFC",
         },
 
-        border: "#E8EEF5",
+        border: "#D8E4E4",
         input: "#C6DBDA",
         ring: "#BE6B1D",
 
@@ -73,6 +73,14 @@ export default {
 
         ink: "#00161D",
         cream: "#F1FCFA",
+
+        boxShadow: {
+          // header: "0px 10px 30px rgba(11, 23, 39, 0.08)",
+          // card: "0px 14px 40px rgba(233, 240, 248, 1)",
+
+          elegant: "0 20px 45px -20px rgba(190, 107, 29, 0.42)",
+          soft: "0 10px 30px -18px rgba(0, 22, 29, 0.24)",
+        },
 
         // ─── Extra UI Colors ───
         whatsapp: "#32C364",

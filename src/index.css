@@ -69,8 +69,8 @@
 
   &:hover {
     transform: translateY(-5px) scale(1.01);
-    border-color: color-mix(in oklab, var(--brand) 42%, var(--border));
-    box-shadow: 0 24px 55px -26px color-mix(in oklab, var(--ink) 42%, transparent);
+    border-color: color-mix(in oklab, #FBB03B 42%, #D8E4E4);
+    box-shadow: 0 24px 55px -26px color-mix(in oklab, #00161D 42%, transparent);
   }
 }
 

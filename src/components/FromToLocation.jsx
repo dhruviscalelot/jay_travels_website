@@ -259,7 +259,7 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
     };
 
     return (
-        <div>
+        <div className={`hover_lift w-full ${homeLayout ? "rounded-2xl bg-card p-5 shadow-elegant border-[2px] border-border" : "rounded-2xl bg-card p-5 shadow-soft border-[2px] border-border"}`}>
             <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
@@ -267,7 +267,7 @@ function FromToLocation({ modifyTripData, homeLayout = false }) {
                 enableReinitialize
             >
                 {({ values, setFieldValue, setFieldTouched, setValues }) => (
-                    <Form className="rounded-[28px] bg-card p-4 shadow-xl sm:p-5 lg:p-5 border border-border">
+                    <Form className="space-y-4">
                         <div className="mb-5 flex flex-wrap justify-start items-center">
                             <div className="px-1.5 pb-2">
                                 <button
